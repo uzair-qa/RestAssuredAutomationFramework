@@ -47,7 +47,7 @@ public class UserTest {
 		Assert.assertEquals(response.getStatusCode(), 200);
 		
 		//log
-		logger.info("Create User executed");
+		logger.info("Create User executed. Modified for jenkins test");
 	}
 	
 	@Test(priority = 2)
