@@ -1,0 +1,4 @@
+[INFO ] 2025-12-13 08:21:19.628 [main] RestAssuredAutomationFramework - Create User executed. Modified for jenkins test
+[INFO ] 2025-12-13 08:21:21.119 [main] RestAssuredAutomationFramework - Get User executed
+[INFO ] 2025-12-13 08:21:24.178 [main] RestAssuredAutomationFramework - Update User executed
+[INFO ] 2025-12-13 08:21:25.606 [main] RestAssuredAutomationFramework - Delete User executed
