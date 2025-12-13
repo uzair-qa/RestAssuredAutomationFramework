@@ -1,5 +1,7 @@
 package api.testcases;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,6 +16,7 @@ public class UserTest {
 
 	Faker faker;
 	User userPayload;	//for setting fake data to payload
+	public static Logger logger;
 	
 	@BeforeClass 	//to execute before all methods of class
 	public void generateTestData() {
@@ -26,7 +29,10 @@ public class UserTest {
 		userPayload.setLastName(faker.name().lastName());
 		userPayload.setEmail(faker.internet().safeEmailAddress());
 		userPayload.setPassword(faker.internet().password(5, 10));
-		userPayload.setPhone(faker.phoneNumber().cellPhone());		
+		userPayload.setPhone(faker.phoneNumber().cellPhone());	
+		
+		//obtain logger
+		logger = LogManager.getLogger("RestAssuredAutomationFramework");
 	} 
 	
 	@Test(priority = 1)
@@ -39,6 +45,9 @@ public class UserTest {
 		
 		//validation
 		Assert.assertEquals(response.getStatusCode(), 200);
+		
+		//log
+		logger.info("Create User executed");
 	}
 	
 	@Test(priority = 2)
@@ -52,6 +61,9 @@ public class UserTest {
 		
 		//validation
 		Assert.assertEquals(response.getStatusCode(), 200);
+		
+		//log
+		logger.info("Get User executed");
 	}
 	
 	@Test(priority = 3)
@@ -71,6 +83,9 @@ public class UserTest {
 		
 		System.out.println("After Update User Data");
 		responsePostUpdate.then().log().all();
+		
+		//log
+		logger.info("Update User executed");
 	}
 	
 	@Test(priority = 4)
@@ -84,6 +99,9 @@ public class UserTest {
 		
 		//validation
 		Assert.assertEquals(response.getStatusCode(), 200);
+		
+		//log
+		logger.info("Delete User executed");
 	}
 }
 
